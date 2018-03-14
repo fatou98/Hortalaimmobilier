@@ -1,0 +1,59 @@
+
+{% extends "base1.html.twig" %}
+
+
+
+
+    {% block table%}
+
+<div class="container divtable" >
+<table class="table table-condensed" id="listebientable">
+<thead>
+    <style>
+    </style>
+
+    
+    <tr class="row"><th>typebien</th>
+        <th>localite</th>
+        <th>prix</th>
+        <th>image</th>
+        <th>details</th>
+       
+    </tr>
+</thead>
+  {% for bien in biens %}
+  <tbody>
+    <tr class="row">
+        <td>{{bien.typebien}}</td>
+        <td>{{bien.libellelocalite}}</td>
+        <td>{{bien.prixlocation}}</td>
+        <td><img class="card-img-top" src="{{ asset('image/') }}{{bien.images[0]}}" alt="Card image cap" width="50px">
+</td>
+         <td><a href="{{path('listeadmin',{id:bien.id})}}" class="btn btn-default bg-primary">details</a></td>
+        
+
+    </tr>
+    </tbody>
+
+{% else %}
+
+  {% endfor %}
+</table>        <div class="text-center">{{ knp_pagination_render(biens) }}</div>
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+

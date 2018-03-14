@@ -1,0 +1,59 @@
+
+{% extends "::base1.html.twig" %}
+
+
+
+
+    {% block table%}
+
+<div class="container divtable" style="margin-left:30px;">
+<table class="table table-condensed" id="listebientable">
+<thead>
+    <tr>
+        <th>nom client</th>
+        <th>adresse bien</th>
+        <th>type bien</th>
+                <th>prix</th>
+        <th>image</th>
+
+        <th>details</th>
+    </tr>
+</thead>
+  {% for reservation in reservations %}
+  <tbody>
+    <tr>
+        <td>{{reservation.client.nomComplet}}</td>
+        <td>{{reservation.bien.libellelocalite}}</td>
+        <td>{{reservation.bien.typebien}}</td>
+        <td>{{reservation.bien.prixlocation}}</td>
+        <td><img class="card-img-top" src="{{ asset('image/') }}{{reservation.bien.images[0]}}" alt="Card image cap" width="50px">
+</td>
+         <td><a href="{{path('details',{id:reservation.id})}}" class="btn btn-default bg-primary" id="reservationid">DETAILS</a></td>
+
+
+    </tr>
+    </tbody>
+
+{% else %}
+
+  {% endfor %}
+</table>
+        <div class="text-center">{{ knp_pagination_render(reservations) }}</div>
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+

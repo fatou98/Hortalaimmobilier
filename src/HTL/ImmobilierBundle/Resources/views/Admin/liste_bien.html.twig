@@ -1,0 +1,42 @@
+{% extends "::table.html.twig" %}
+{% block table %}
+ <span class="" style="background-color:blue;color:white;padding:5px;"><a href="{{path('addbien')}}" id="ajouterbien" style="color:white;">Ajouter<i class="fa fa-plus"></i></a></span><br><br><br>
+<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%" style="background-color: white;">
+<thead>
+    <tr>
+        <th>nombien</th>
+        <th>localite</th>
+        <th>typebien</th>
+        <th>prixlocation</th>
+        <th>image</th>
+        <th>Actions</th>
+    </tr>
+</thead> <tbody>
+  {% for bien in biens %}
+ 
+    <tr class="gradeA">
+        <td>{{bien.nombien}}</td>
+        <td>{{bien.libellelocalite}}</td>
+        <td>{{bien.typebien}}</td>
+        <td>{{bien.prixlocation}}</td>
+        <td><img class="card-img-top" src="{{ asset('image/') }}{{bien.images[0]}}" alt="Card image cap" width="50px" ></td>
+         <td class="actions">
+                                                <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                                                <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                                                <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+    
+</tr>
+   
+{% else %}
+<h1>ce bien n'existe pas</h1>
+  {% endfor %} </tbody></table>
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>E-SHOP HTML Template</title>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/slick.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{asset('css/slick-theme.css')}}" />
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/nouislider.min.css')}}" />
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/style5.css')}}" />
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	
+
+
+	
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!--  Product Details -->
+				<div class="product product-details clearfix">
+					<div class="col-md-6">
+						<div id="product-main-view">
+							{% block image %}
+							{% endblock %}
+
+						</div>
+						<div id="product-view">
+						{% block image1 %}
+							{% endblock %}
+
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="product-body">
+						
+						 {% block description %}
+ {% endblock %}
+
+						</div>
+					</div>
+					<div class="col-md-12"><h1>Reserver le bien</h1>
+						<div class="product-tab">
+							<ul class="tab-nav">
+								<li class="active"><a data-toggle="tab" href="#tab1">Connexion</a></li>
+								<li><a data-toggle="tab" href="#tab2">Inscription</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="tab1" class="tab-pane fade in active col-md-6">
+									<form id="connexion" method="post">
+        <div class="card-header"> <h2>CONNEXION</h2></div><hr>
+                  <input type="hidden" class="form-control" name="form" placeholder="" value="connexion">
+    <input type="hidden" class="form-control" name="idBien" placeholder="" value="{{ biens[0].id }}">
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="example@example.com">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="enter your password"></div>
+
+           <button type="submit" class="btn btn-primary" name="connexion">Submit</button>
+       
+
+</form>
+
+       
+    </aside></div>
+								<div id="tab2" class="tab-pane fade in col-md-6">
+
+									 <form id="inscription" method="post">
+               <div class="card-header"> <h2>Inscription</h2><hr>
+
+            <div class="row">
+  <div class="form-group col-md-6">
+          <input type="hidden" class="form-control" name="form" placeholder="" value="inscription">
+
+    <input type="hidden" class="form-control" name="idBien" placeholder="" value="{{ biens[0].id }}">
+
+      <label for="formGroupExampleInput2">Numpiece</label>
+    <input type="number" class="form-control" name="numpiece" placeholder="enter your cni" value="">
+  </div> <div class="form-group col-md-6">
+    <label for="formGroupExampleInput">Nom</label>
+    <input type="text" class="form-control" name="nomComplet" placeholder="entrez votre nom" value="">
+  </div>
+                </div>
+  <div class="form-group">
+       <label for="formGroupExampleInput2">TEL</label>
+    <input type="number" class="form-control" name="tel" placeholder="enrter votre numero " value="">
+                   </div><div class="form-group">
+       <label for="formGroupExampleInput2">Adresse</label>
+    <input type="text" class="form-control" name="adresse" placeholder="entrer votre addresse" value="">
+                   </div>
+    <br><div class="form-group">   <label for="formGroupExampleInput2">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="entrer votre email" value="">
+                   </div>
+           <br>
+       <div class="form-group">
+    <label for="formGroupExampleInput2">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="entrer votre password" value=""></div>
+
+           <button type="submit" class="btn btn-primary" name="inscription">Submit</button>
+        
+            </div>
+
+</form>
+										</div>
+									</div>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /Product Details -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+	<!-- jQuery Plugins -->
+	<script src="{{asset('js/jquery1.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('js/slick.min.js')}}"></script>
+	<script src="{{asset('js/nouislider.min.js')}}"></script>
+	<script src="{{asset('js/jquery.zoom.min.js')}}"></script>
+	<script src="{{asset('js/main.js')}}"></script>
+
+</body>
+
+</html>

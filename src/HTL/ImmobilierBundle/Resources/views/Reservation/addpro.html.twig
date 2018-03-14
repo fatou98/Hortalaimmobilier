@@ -1,0 +1,57 @@
+{% extends "::base1.html.twig" %}
+{% block body %}
+
+<section class="register-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 register-sec">
+                <h2 class="text-center">ENREGISTREMENT PROPRIETAIRE</h2>
+                <form class="register-form" action="" method="post">
+                    <div class="form-group">
+                        <label for="name" class="text-uppercase">Nom Complet</label>
+                        <input type="name" name="nomcomplet" class="form-control" placeholder="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address" class="text-uppercase">Adresse</label>
+                        <input type="address" name="adresse" class="form-control" placeholder="adresse">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail" class="text-uppercase">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="numpiece" class="text-uppercase">Numero Piece</label>
+                        <input type="number" name="numeropiece" class="form-control" placeholder="numero piece">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel" class="text-uppercase">TEL</label>
+                        <input type="number" name="tel" class="form-control" placeholder="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="codebank" class="text-uppercase">Code Banque</label>
+                        <input type="number" name="codebanque" class="form-control" placeholder="code banque">
+                    </div>
+
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-success btn-register float-right">Enregistrer</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="col-md-8 banner-sec">
+                <div id="mainDiv">
+                    <div id="boxDiv">
+                        <div id="front"><br>QUALITE</div>
+                        <div id="back"><br>EFFICACITE</div>
+                        <div id="left"><br>FIABILITE</div>
+                        <div id="right"><br>HORTALA</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

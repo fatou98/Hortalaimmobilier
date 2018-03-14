@@ -1,0 +1,36 @@
+
+{% extends "::pageadmin.html.twig" %}
+        {% block liste %}
+
+
+   <div class="" id="divtable">
+<h1>LISTE DES LOCALITES</h1>
+<table class="table table-condensed" border="1px" id="listebientable">
+<thead>
+    <tr>
+        <th>id</th>
+        <th>nom localite</th>
+        
+    
+    </tr>
+</thead>
+  {% for localite in localites %}
+  <tbody>
+    <tr>
+        <td>{{localite.id}}</td>
+        <td>{{localite.libellelocalite}}</td>
+    </tr>
+    </tbody>
+
+{% else %}
+<h1>ce bien n'existe pas</h1>
+  {% endfor %}
+</table></div>
+{% endblock %}
+
+
+
+
+
+
+

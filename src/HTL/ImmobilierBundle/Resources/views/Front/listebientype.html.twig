@@ -1,0 +1,63 @@
+
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+{% block header %}
+{% endblock %}
+
+{% block image %}
+
+<div class="container bg-warning divtable">
+   
+<h1>LISTE DES UTILISATEURS</h1>
+<table class="table table-responsive table-condensed" border="1px">
+<thead>
+    <tr>
+        <th>nombien</th>
+         <th>localite</th>
+         <th>typebien</th>
+        <th>description</th>
+        <th>prixlocation</th>
+        <th>image</th>
+    </tr>
+</thead>
+  {% for bien in biens %}
+  <tbody>
+    <tr>
+        <td>{{bien.nombien}}</td>
+        <td>{{bien.libellelocalite}}</td>
+        <td>{{bien.libelletype}}</td>
+        <td>{{bien.description}}</td>
+        <td>{{bien.prixlocation}}</td>
+     <td><img class="card-img-top" src="{{ asset('image/{{bien.image}}') }}" alt="Card image cap"></td>
+        
+       
+
+    </tr>
+    </tbody>
+
+{% else %}
+<h1>ce bien n'existe pas</h1>
+  {% endfor %}
+</table>
+        <div class="text-center">{{ knp_pagination_render(biens) }}</div>
+
+</div>
+{% endblock %}
+
+
+{% endblock %}
+
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}HORTALA!{% endblock %}</title>
+{% block stylesheets %}
+
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+                        <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
+
+    <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
+
+{% endblock %}     
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+       <body>
+    <div class="header">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                  <!-- Logo -->
+                  <div class="logo">
+                     <h1><a href="index.html">GERANT</a></h1>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="input-group form">
+                           <input type="text" class="form-control" placeholder="Search...">
+                           <span class="input-group-btn">
+                             <button class="btn btn-primary" type="button">Search</button>
+                           </span>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+               <div class="col-md-2">
+                  <div class="navbar navbar-inverse" role="banner">
+                      <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                        <ul class="nav navbar-nav">
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                            <ul class="dropdown-menu animated fadeInUp">
+                              <li><a href="profile.html">Profile</a></li>
+                              <li><a href="login.html">Logout</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+    </div>
+
+    <div class="page-content">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li><a href="#" id="bien"><i class="glyphicon glyphicon-list" ></i>Biens</a></li>
+                    <li><a href="#"  id="Reservations"><i class="glyphicon glyphicon-list"></i>Reservations</a></li>
+                </ul>
+             </div>
+          </div>
+          <div class="col-md-10">
+            <div class="row">
+                <div class="row">
+                    <div class="content-box-large">
+                        <div class="panel-heading">
+                            <div class="panel-title"><h4>LISTE</h4></div>
+                            <div class="panel-options" id="liste">
+                                
+                            </div>   
+                        </div>
+                        <div class="panel-body"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Copyright 2018 <a href='#'>HORTALA IMMO</a>
+            </div>
+            
+         </div>
+      </footer></div>
+ {% block javascripts %}
+     <script src="{{asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+
+     <script type="text/javascript">
+        $(document).ready(function(){
+      $("#liste").load("{{path('listeadmin')}}");
+
+  $('#bien').on("click",function(){
+        $("#liste").load("{{path('listeadmin')}}");
+    });
+     $('#Reservations').on("click",function(){
+        $("#liste").load("{{path('listereservation')}}");
+    });
+     $("#reservationid").on("click",function(){
+        $("#liste").load("{{path('details')}}");
+
+     });
+      });</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>         {% endblock %}
+
+  </body>
+</html>
+ 

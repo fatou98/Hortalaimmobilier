@@ -1,0 +1,68 @@
+htl_immobilier_homepage:
+    path:     /
+    defaults: { _controller: HTLImmobilierBundle:Default:index }
+accueil:
+    path:     /front/bien/accueil
+    defaults: { _controller: HTLImmobilierBundle:Front:accueil }
+accueilprop:
+    path:     /admin/bien/accueil
+    defaults: { _controller: HTLImmobilierBundle:Reservation:accueil }
+search:
+    path:     /front/bien/search
+    defaults: { _controller: HTLImmobilierBundle:Front:searchBien }
+reserver:
+    path:     /front/bien/
+    defaults: { _controller: HTLImmobilierBundle:Front:reserverBien }
+listebien:
+    path:     /front/bien/listebien
+    defaults: { _controller: HTLImmobilierBundle:Front:listeBien }
+searchprix:
+    path:     /front/bien/prix
+    defaults: { _controller: HTLImmobilierBundle:Front:searchPrix}
+searchlocalite:
+    path:     /front/bien/localite
+    defaults: { _controller: HTLImmobilierBundle:Front:searchLocalite }
+listeadmin:
+    path:     /front/bien/admin
+    defaults: { _controller: HTLImmobilierBundle:Front:listeAdmin }
+listereservation:
+    path:     /front/bien/reservation
+    defaults: { _controller: HTLImmobilierBundle:Front:listeReservation }
+details:
+    path:     /front/bien/details
+    defaults: { _controller: HTLImmobilierBundle:Front:detailsReservation }
+contrat:
+    path:     /front/bien/contrat
+    defaults: { _controller: HTLImmobilierBundle:Front:contratReservation }
+listetype:
+    path:     /front/bien/typebien
+    defaults: { _controller: HTLImmobilierBundle:Front:listTypebien }
+listelocalite:
+    path:     /front/bien/listelocalite
+    defaults: { _controller: HTLImmobilierBundle:Front:listelocalite }
+pdf:
+    path:     /front/bien/pdf
+    defaults: { _controller: HTLImmobilierBundle:Front:convertoPdf }
+afficherpdf:
+    path:     /front/bien/afficherpdf
+    defaults: { _controller: HTLImmobilierBundle:Front:afficherpdf }
+login:
+    path:     /admin/login
+    defaults: { _controller: HTLImmobilierBundle:Admin:log }
+listebienadmin:
+    path:     /admin/listebien
+    defaults: { _controller: HTLImmobilierBundle:Admin:listBien }
+    
+addlocalite:
+    path:     /admin/addlocalite
+    defaults: { _controller: HTLImmobilierBundle:Admin:addlocalite }
+    
+addtypebien:
+    path:     /admin/addtypebien
+    defaults: { _controller: HTLImmobilierBundle:Admin:addtypebien }
+    
+addbien:
+    path:     /admin/addbien
+    defaults: { _controller: HTLImmobilierBundle:Admin:addbien }
+    
+

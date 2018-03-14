@@ -1,0 +1,127 @@
+{% extends "::base1.html.twig" %}
+{% block table %}
+<style>
+div{
+    font-family:Times New Roman;
+}
+.panel-title{
+    background-color:gray;
+    color:white;height:50px;border-radius:5px;text-align:center;
+}
+.container{
+    border:1px solid gray;
+    border-radius:10px;
+  margin-right:20px;
+  margin-bottom:10px;
+        margin-left:100px;
+
+}
+.client{
+    width:400px;
+}
+}
+.montant{
+
+  margin-top: 20px;
+}
+.contrat{
+ 
+}
+</style>
+<div class="row container">
+               <div class="col-md-6 client">
+                    <div class="content-box-large">
+                            <div class="panel-title"><h1>CLIENT</h1></div>
+                        <div class="panel-body">
+                        </div>{% for reservation in reservations %}
+        <h3>Nom :{{reservation.client.nomComplet}}</h3>
+    <h3>    CNI :{{reservation.client.numpiece}}</h3>
+    <h3>    Tel :{{reservation.client.tel}}</h3>
+        <h3>Adresse :{{reservation.client.adresse}}</h3>
+      <h3>  Email :{{reservation.client.email}}</h3>
+                    </div>
+                </div>
+                <div class="col-md-6" bien>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content-box-header">
+                                <div class="panel-title bg-primary"><h1>BIEN</h1></div>
+                            <div class="content-box-large box-with-header">
+                                  <h3>Type de bien :{{reservation.bien.typebien}}</h3>
+                            <h3>      Localite :{{reservation.bien.libellelocalite}}</h3>
+                           <h3>   Description :{{reservation.bien.description}}</h3>
+                          <h3> Prix location :{{reservation.bien.prixlocation}}</h3>
+                        <h3>Images:
+                                  {% for image in reservation.bien.images %}
+ <img class="card-img-top" src="{{ asset('image/') }}{{image.image}}" alt="Card image cap" width="100px" height="80px">{% endfor %}
+ </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                 </div> <div class="col-md-6 montant">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content-box-header">
+                                <div class="panel-title bg-primary"><h1>MOntant</h1></div>
+                            <div class="content-box-large box-with-header">
+                                  <h3>Caution :{{reservation.bien.prixlocation}}</h3>
+                            <h3>      Mensualite :{{reservation.bien.prixlocation}}</h3><input type="hidden" name="" value="{{reservation.bien.prixlocation}}">
+                           <h3>    Total:{{2*reservation.bien.prixlocation}}</h3>
+                        <div class="checkbox">
+      <label> <h3><input type="checkbox" value="1ans" name="">Contrat de 1 an renouvelable</h3></label>
+    </div>
+  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                 <div class="col-md-6  contrat">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content-box-header">
+                                <div class="panel-title bg-primary"><h1>Contrat</h1></div>
+                            <div class="content-box-large box-with-header">
+                                  <h3>Terme du contrat</h3>
+ <div class="form-group">
+  <textarea class="form-control" rows="5" id="contrat"></textarea>
+</div>             
+<div class="radio">
+  <label><input type="radio" name="optradio" id="optradio">Accepter</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio" id="optradio1">Refuser</label>
+</div>
+<div class="submit">
+<form method="post" >
+<input type="hidden" name="id" value="{{reservation.id}}" />
+<input type="hidden" name="idclient" value="{{reservation.client.id}}" />
+<input type="hidden" name="idbien" value="{{reservation.bien.id}}" />
+<input type="hidden" name="caution" value="{{reservation.bien.prixlocation}}" />
+<input type="hidden" name="montant" value="{{2*reservation.bien.prixlocation}}" />
+<input type="hidden" value="1ans" name="duree" />
+
+<a type="submit" href="{{path('afficherpdf',{id:reservation.id})}}" name="save" class="btn btn-default bg-dark" id="save" disabled>enregistrer</a>
+</form>
+ 
+</div>
+ 
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+               </div>
+              
+               </div>
+             
+               
+  <div class="col-md-2"><a href="{{path('accueil')}}" class="btn btn-default bg-dark">RETOUR</a>
+</div>
+
+{% else %}
+
+ 
+ 
+  {% endfor %}
+{% endblock %}
+

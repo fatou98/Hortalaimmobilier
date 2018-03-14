@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+{% block image %}
+{% for bien in biens %}
+               {% for image in  bien.images %}
+<li style=""><img src="{{ asset('image/') }}{{image.image}}" alt="" data-image="{{ asset('image/') }}{{image.image}}"  height="110px"></li>       
+{% else %}
+               {% endfor %}
+{% else %}
+  {% endfor %}
+ {% endblock %}
+ {% block image1 %}
+{% for bien in biens %}
+<div class="single_product_image_background" style="background-image:url('{{ asset('image/') }}{{bien.images[0]}}')"></div>
+{% else %}
+  {% endfor %}
+ {% endblock %}
+  {% block description %}
+{% for bien in biens %}
+ <div class="col-lg-5">
+  <div class="product_details">
+          <div class="product_details_title">
+            <h2>{{bien.nombien}}</h2>
+    <p>{{bien.description}}</p>
+  </div>
+  <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+  <span class="ti-truck"></span><span> {{bien.libellelocalite}}</span>
+          </div>
+          <div class="">{{bien.prixlocation}}</div>
+        </div>
+      </div>
+      {% else %}
+  {% endfor %}
+ {% endblock %}
